@@ -29,9 +29,16 @@ jobs:
                gcc-g++
                gcc-objc
                gcc-objc++
-
-    - name: Print current dir
-      run: pwd
   
     - name: Configure and build
       run: bash ./build.sh
+
+    - name: Test executable
+      run: ./iperf3.exe -v
+
+    - name: Archive bexecutable
+      uses: actions/upload-artifact@v3
+      with:
+        name: executable
+        path: |
+          iperf3.exe
