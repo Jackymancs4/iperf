@@ -31,18 +31,19 @@ jobs:
                 gcc-objc
                 gcc-objc++
   
-    - name: Configure and build
+    - name: Bootstrap
       run: bash ./bootstrap.sh
 
     - name: Configure and build
       run: bash ./build.sh
 
     - name: Test executable
-      run: .\src\iperf3.exe -v
+      run: C:\cygwin\usr\local\bin\iperf3.exe -v
 
     - name: Archive executable
       uses: actions/upload-artifact@v3
       with:
         name: executable
         path: |
-          .\src\iperf3.exe
+          C:\cygwin\usr\local\bin\iperf3.exe
+          C:\cygwin\bin\cygwin1.dll

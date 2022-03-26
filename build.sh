@@ -1,1 +1,1 @@
-./configure; make
+./configure; make; make install
