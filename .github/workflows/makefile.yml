@@ -22,6 +22,12 @@ jobs:
     - name: configure
       run: ./configure
       
+    - name: Print current dir
+      run: pwd
+    
+    - name: Print current dir content
+      run: ls
+    
     - name: Install dependencies
       run: make
       
