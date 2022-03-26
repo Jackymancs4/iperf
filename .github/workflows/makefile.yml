@@ -24,21 +24,25 @@ jobs:
       uses: cygwin/cygwin-install-action@v2
       with:
           packages: >-
-               make
-               gcc-core
-               gcc-g++
-               gcc-objc
-               gcc-objc++
+                make
+                libtool
+                gcc-core
+                gcc-g++
+                gcc-objc
+                gcc-objc++
   
+    - name: Configure and build
+      run: bash ./bootstrap.sh
+
     - name: Configure and build
       run: bash ./build.sh
 
     - name: Test executable
-      run: ./iperf3.exe -v
+      run: .\src\iperf3.exe -v
 
-    - name: Archive bexecutable
+    - name: Archive executable
       uses: actions/upload-artifact@v3
       with:
         name: executable
         path: |
-          iperf3.exe
+          .\src\iperf3.exe
