@@ -24,6 +24,7 @@ jobs:
       uses: cygwin/cygwin-install-action@v2
       with:
           packages: >-
+               make
                gcc-core
                gcc-g++
                gcc-objc
