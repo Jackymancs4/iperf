@@ -33,12 +33,5 @@ jobs:
     - name: Print current dir
       run: pwd
   
-    - name: Configure
-      run: bash ./configure
-
-    - name: Print current dir content
-      run: ls
-
-    - name: Build
-      run: bash make
-      
+    - name: Configure and build
+      run: bash ./build.sh
