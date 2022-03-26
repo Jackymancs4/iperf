@@ -12,6 +12,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
+
+    - name: Fix git
+      run: git config --global core.autocrlf input
+
     - uses: actions/checkout@v2
     
     - name: Install Cygwin Action
@@ -19,20 +23,12 @@ jobs:
       # uses: cygwin/cygwin-install-action@49f298a7ebb00d4b3ddf58000c3e78eff5fbd6b9
       uses: cygwin/cygwin-install-action@v2
     
-    - name: configure
-      run: ./configure
-      
     - name: Print current dir
       run: pwd
     
     - name: Print current dir content
       run: ls
-    
-    - name: Install dependencies
-      run: make
+
+    - name: Build
+      run: bash ./build.sh
       
-    - name: Run check
-      run: make check
-      
-    - name: Run distcheck
-      run: make distcheck
